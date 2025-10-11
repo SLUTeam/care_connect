@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Route Schedule Report</title>
+</head>
+<body style="width: 100%;font-family:Helvetica;margin-left:20px;color:#1b1c1d;font-size:10px;" bgcolor="#ffffff">
+	 
+	<div style="width:90%;margin:20px;color:#4a4b4c;font-family:Helvetica;font-size:12px;">
+          <table style="width:100%;border-collapse: collapse;" border="1">
+             <thead>
+             <tr>
+                 <th style="width: 10%;text-align: center;padding:10px;" rowspan="4">Identity</th>
+                 <th style="width: 10%;text-align: center;padding:10px;" rowspan="4">Vessel</th>
+                 <th style="width: 10%;text-align: center;padding:10px;" rowspan="4">Voyage</th>
+                 <span th:each="firstColunm : ${firstColunmList}">
+                 	<th style="width: 10%;text-align: center;padding:10px;" colspan="2"><span th:text="${firstColunm.port}">FirstColmn port</span></th>
+                 </span>
+                 <th style="width: 10%;text-align: center;padding:10px;" rowspan="4">Voyage</th>
+                 <span th:each="secondColunm : ${secondColunmList}">
+                 	<th style="width: 10%;text-align: center;padding:10px;" colspan="2"><span th:text="${secondColunm.port}">Second column port</span></th>
+             	</span>
+             </tr>
+              <tr>
+              	<span th:each="firstColunm : ${firstColunmList}">
+             		<th style="width: 10%;text-align: center;padding:10px;">ETA</th>
+                	<th style="width: 10%;text-align: center;padding:10px;">ETD</th>
+                </span>
+                <span th:each="secondColunm : ${secondColunmList}">
+	                <th style="width: 10%;text-align: center;padding:10px;">ETA</th>
+	                <th style="width: 10%;text-align: center;padding:10px;">ETD</th>
+	            </span>
+	            </tr>
+             </thead>
+             <tbody>
+             	<tr>
+             		<td style="padding:10px;"><span>Identity</span></td>
+             		<td style="text-align: center; padding:10px"><span>Vessel</span></td>
+             		<td style="text-align: right; padding:10px"><span>Voyage</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETA - 1</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETD - 1</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETA - 3</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETD - 3</span></td>
+             		<td style="text-align: right; padding:10px"><span>Voyage</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETA - 2</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETD - 2</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETA - 4</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETD - 4</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETA - 3</span></td>
+             		<td style="text-align: right; padding:10px"><span>ETD - 3</span></td>
+             	</tr> 
+             </tbody>
+         </table>
+      </div>
+        
+</body>
+</html>

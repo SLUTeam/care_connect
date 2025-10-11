@@ -1,0 +1,58 @@
+package com.app.util;
+
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+
+public class TimeZoneUtil {
+
+	public static void main(String[] args) {
+		
+		 for (String id : ZoneId.getAvailableZoneIds()) {
+	            //System.out.println(id);
+	        }
+		
+        String[] ids = TimeZone.getAvailableIDs();
+        for (String id : ids) {
+           System.out.println(id+"--------------------------------"+displayTimeZone(TimeZone.getTimeZone(id)));
+        }
+        
+        System.out.println("\nTotal TimeZone ID " + ids.length);
+
+    }
+
+    private static String displayTimeZone(TimeZone tz) {
+
+        long hours = TimeUnit.MILLISECONDS.toHours(tz.getRawOffset());
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(tz.getRawOffset()) 
+                                  - TimeUnit.HOURS.toMinutes(hours);
+        // avoid -4:-30 issue
+        minutes = Math.abs(minutes);
+
+        String result = "";
+        if (hours > 0) {
+            result = String.format("(GMT+%d:%02d) %s", hours, minutes, tz.getID());
+        } else {
+            result = String.format("(GMT%d:%02d) %s", hours, minutes, tz.getID());
+        }
+
+        return result;
+
+    }
+    
+    
+    public static List<LabelValue> getAllAvailableTimeZones() {
+       List<LabelValue> timeZoneList = new ArrayList<LabelValue>();
+	   String[] ids = TimeZone.getAvailableIDs();
+       for (String id : ids) {
+    	   timeZoneList.add(new LabelValue(displayTimeZone(TimeZone.getTimeZone(id)), id));
+       }
+       Collections.sort(timeZoneList);
+       return timeZoneList;
+    }
+
+	 
+}

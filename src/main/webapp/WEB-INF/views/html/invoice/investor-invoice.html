@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Subscription/Platform Usage Invoice</title>
+</head>
+<body style="width: 100%;font-family:Helvetica;margin-left:20px;color:#1b1c1d;font-size:10px;" bgcolor="#ffffff">
+	<!-- <div style="text-align:center;width: 90%;"><b>Subscription Invoice</b></div> -->
+	
+	<div style="width:90%;margin:20px;font-family:Helvetica;">
+		<span style="float:right;color:#1b1c1d;font-size:18px;"><br/>TAX INVOICE</span>
+		<div style="text-align:left">
+	                   <img src="https://rangde.imgix.net/rdlogo.jpg" alt="Rang De" width="80" />
+	                    <p style="text-align:left;color:#4a4b4c;font-size:10px;">RANG DE P2P FINANCIAL SERVICES PRIVATE LIMITED
+	                    <br/>
+	                    Survey No. 29/3 &amp; 32/2, Raj Alkaa Park, Begur hobli, Bannerghatta Main Rd,
+	                    <br/> Kalena Agrahara, Bengaluru, Karnataka 560076</p>
+		
+		</div>
+		
+	</div>
+	
+	<div style="width:90%;margin:20px;color:#4a4b4c;font-family:Helvetica;font-size:12px;">
+	<br/><br/>
+		<!-- <span style="text-align:left;font-family:Helvetica-Regular;font-size:15px;">RANG DE P2P FINANCIAL SERVICES PRIVATE LIMITED</span> -->
+		<span style="text-align:right;float:right;"><span th:text="${dateOfInvoice}">1st September, 2019</span> | <span th:text="${dayOfWeek}">Monday</span></span>
+		<br/>
+		<span style="text-align:right;float:right;"><span th:text="${invoiceNumber}">Invoice Number</span></span>
+		<!-- <p style="text-align:center;"><b>This Invoice Summary is for the billing period <span th:text="${billingPeriod}">Billing Period</span></b></p> -->
+		<br/><br/><br/>
+		<p>Billed to <br/>
+		<span style="text-align:left;font-size:14px;font-weight: bold;" th:text="${investorName}">Name</span>
+		<br/>
+		<span th:text="${investorEmailId}">Email</span>
+		<br/>
+		<span th:text="${investorPhoneNumber}">Phone</span>
+		<br/>
+		<span th:if="${investorAddress != null and investorAddress != ''}">
+			<span th:text="${investorAddress}">Address</span>
+		</span></p>
+
+	</div>
+	
+	<div style="width:90%;margin:20px;color:#4a4b4c;font-family:Helvetica;font-size:12px;">
+	<hr style="border-color:#767676;border-top: 1px;" />
+          <table style="width:100%;">
+             <thead>
+             <tr>
+                 <th style="width: 25%;text-align:left;">S No.</th>
+                 <th style="width: 59%;text-align: left;">Description</th>
+                 <th style="width: 15%;text-align: right;">Amount</th>
+                 <th style="width: 1%">&nbsp;</th>
+             </tr>
+             </thead>
+             
+             <tbody>
+	           <tr>
+	             <td style="text-align: center;border-top: 1px solid #767676;" colspan="6"><br/></td>
+	           </tr>
+               <tr>
+                 <td style="text-align:left;">    1</td>
+                 <td style="text-align:left;"><span th:text="${description}">Rang De Operations</span></td>
+                 <td style="text-align:right;"><span th:text="${totalAmountWithoutGst}">Amount Paid</span></td>
+                 <td style="text-align: center;">&nbsp;</td>
+               </tr>
+             <tr>
+                 <td style="text-align: center;" colspan="6"><br/><br/><br/><br/><br/></td>
+             </tr>
+              <tr>
+                 <td style="text-align: center;" ></td>
+                 <td style="text-align: right;">CGST: 9%</td>
+                 <td style="text-align: right;"><span th:text="${cgstAmount}">9%</span></td>
+                 <td style="text-align: center;">&nbsp;</td>
+               </tr>
+               <tr>
+                 <td style="text-align: center;" ></td>
+                 <td style="text-align: right;">SGST: 9%</td>
+                 <td style="text-align: right;"><span th:text="${sgstAmount}">9%</span></td>
+                 <td style="text-align: center;">&nbsp;</td>
+               </tr>
+                <tr>
+	             <td style="text-align: center;border-bottom: 1px solid #767676;" colspan="6"><br/></td>
+	           </tr>
+                <tr>
+                 <td style="text-align: center;"></td>
+                 <td style="text-align: right;">Total Amount Paid</td>
+                 <td style="text-align: right;"><span th:text="${totalAmountPaid}">999</span></td>
+                 <td style="text-align: center;">&nbsp;</td>
+               </tr>
+                <tr>
+	             <td style="text-align: center;border-top: 1px solid #767676;" colspan="6"><br/></td>
+	           </tr>
+	            <tr>
+                 <td style="text-align: center;"></td>
+                 <td style="text-align: right;" colspan="2">In Words: <span th:text="${totalAmountPaidInWords}"> Nine Hundred Ninety Nine</span> only</td>
+                 <td style="text-align: center;">&nbsp;</td>
+               </tr>
+             </tbody>
+         </table>
+      </div>
+      
+      <div id="sign-footer-section" style="width:90%;margin:20px;color:#4a4b4c;">
+      		<p><em> thank you,</em></p>
+            <p><img id="sign" width="70" src="https://s3.ap-south-1.amazonaws.com/rangde-p2p-gen/images/abdfeq-671550193-vggah56-smita-sign.png" alt="Sign"></img></p>
+            <!-- <p><em>Smita Satish</em></p> -->
+            <p><em>Authorized Signatory</em></p><br/>
+            <p><span style="float:left;">GST#: 29AAICR6409B1ZE</span>  <span style="float:right;">email: support@rangde.in</span> </p>
+        </div>
+        
+</body>
+</html>

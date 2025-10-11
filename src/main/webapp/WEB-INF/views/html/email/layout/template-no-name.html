@@ -1,0 +1,87 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" style="width: 100%;" xmlns:th='http://www.thymeleaf.org' xmlns='http://www.w3.org/1999/xhtml' xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mailer</title>
+</head>
+
+<body style="width: 100%;" bgcolor="#FFF">
+    <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin: 0 auto;border: 1px solid #8a8a8a;">
+        <thead>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <a href="https://www.bslogi.com/">
+                        <img src="https://www.bslogi.com/wp-content/uploads/2019/09/cropped-WeChat-Screenshot_20190916174736-3-224x100.png" alt="Rang De" width="70">
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="40">
+                        <tbody>
+                            <tr>
+                                <td style="line-height: 1.5;">
+                                    <p>Dear Investor,</p>
+                            
+                                    <div layout:fragment="content">*|BODY|*</div>
+
+                                    <p>&nbsp;</p>
+                                    <p>
+                                        With gratitude <br>
+                                        <p th:if="${#strings.isEmpty(agentName)}">Blue Sky Logitrade Ltd,</p>
+                                    	<p th:unless="${#strings.isEmpty(agentName)}"><span th:text="${agentName}">Agent</span>,</p>
+                                    	
+                                    	<p th:if="${#strings.isEmpty(agentAddress)}">BLK A,2/F,HK Industrial BLDG,444 Des Voeux Road W,Sai Ying Pun,Hong Kong,</p>
+                                    	<p th:unless="${#strings.isEmpty(agentAddress)}"><span th:text="${agentAddress}">Address</span>,</p>
+                                    	
+                                    	<p th:if="${#strings.isEmpty(agentPhone)}">+852 3911 3631,</p>
+                                    	<p th:unless="${#strings.isEmpty(agentPhone)}"><span th:text="${agentPhone}">Phone</span>,</p>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" bgcolor="#efefef">
+                  <p style="font-size: 11px;color: #5d5b5b;">Blue Sky Logitrade Ltd respects your privacy. 
+                    If you have any concerns about your privacy, 
+                    please view our <a href="https://www.bslogi.com/testimonials/">Privacy Policy</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="150" height="15" bgcolor="#b7d03c"></td>
+                                <td width="150" height="15" bgcolor="#00a9dd"></td>
+                                <td width="150" height="15" bgcolor="#eb5232"></td>
+                                <td width="150" height="15" bgcolor="#e32642"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+
+

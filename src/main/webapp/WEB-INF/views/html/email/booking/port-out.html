@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Laden Picked Up</title>
+</head>
+<body style="width: 100%;font-family:Helvetica;margin-left:20px;color:#1b1c1d;font-size:10px;" bgcolor="#ffffff">
+	<!-- <div style="text-align:center;width: 90%;"><b>Subscription Invoice</b></div> -->
+	
+	<div style="width:90%;margin:20px;font-family:Helvetica;">
+		<span style="float:right;color:#1b1c1d;font-size:18px;"><br/>Laden Picked Up</span>
+		<div style="text-align:left">
+	                   <img src="https://www.bslogi.com/wp-content/uploads/2019/09/cropped-WeChat-Screenshot_20190916174736-3-224x100.png" alt="BSLogi Trade" width="70">
+	                    <p style="text-align:left;color:#4a4b4c;font-size:10px;">BLUE SKY LOGITRADE
+	                    <br/>
+	                    BLK A, 2/F, HK Industrial BLDG, &amp; 444 Des Voeux Road W, Sai Ying Pun, Hong Kong,
+	                    <br/> Email: admin@bslogi.com    Phone: +852 3911 3631</p>
+		</div>
+		
+	</div>
+
+	<div style="width:90%;margin:20px;color:#4a4b4c;font-family:Helvetica;font-size:12px;">
+		<p><b>Dear Customer,</b></p>
+		<p>Consignee has taken delivery at POD.</p>
+		<p>
+			Container No : <br/>
+			<b><span th:each="container : ${containerNo}">
+				<span th:text="${container}"></span><br/>
+			 </span></b>
+		</p>
+	</div>
+
+	<div id="sign-footer-section" style="width:90%;margin:20px;color:#4a4b4c;font-family:Helvetica;font-size:12px;">
+      		<p><b> Regards</b></p>
+            <p><span th:text="${agentName}"></span></p>
+            <p><span th:text="${mobileNo}"></span></p>
+            <p><span th:text="${address}"></span></p>
+            <p><span style="float:right;">email: support@bslogi.com</span> </p>
+        </div>
+        
+</body>
+</html>
