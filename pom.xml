@@ -9,11 +9,11 @@
 		<version>2.3.0.BUILD-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.2024-ebrain-local-lending-api</groupId>
-	<artifactId>2024-ebrain-local-lending-api</artifactId>
+	<groupId>com.care-connect-api</groupId>
+	<artifactId>care-connect-api</artifactId>
 	<version>1.0</version>
-	<name>2024-ebrain-local-lending-api</name>
-	<description>API for Ebrain Local Lending App</description>
+	<name>care-connect-api</name>
+	<description>API for care-connect App</description>
 
 	<profiles>
 		<profile>
@@ -390,7 +390,12 @@
 			<artifactId>aws-java-sdk-s3</artifactId>
 			<version>1.11.327</version>
 		</dependency>
-
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.34</version>
+    <scope>provided</scope>
+</dependency>
 
 
 	</dependencies>
@@ -420,15 +425,7 @@
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>3.0.2</version>
 			</plugin>
-
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<warSourceDirectory>src/main/webapp</warSourceDirectory>
-					<packagingIncludes>WEB-INF/views/html/**></packagingIncludes>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
+		
 
 		</plugins>
 	</build>

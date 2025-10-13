@@ -72,12 +72,108 @@ public class User extends RecordModifier implements Serializable {
 	@Column(name = "role_id")
 	private UUID userRoleId;
 
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public UUID getUserRoleId() {
+		return userRoleId;
+	}
+
+	public void setUserRoleId(UUID userRoleId) {
+		this.userRoleId = userRoleId;
+	}
+
+	public Boolean getChangePassword() {
+		return changePassword;
+	}
+
+	public void setChangePassword(Boolean changePassword) {
+		this.changePassword = changePassword;
+	}
+
+	public Date getDeletedOn() {
+		return deletedOn;
+	}
+
+	public void setDeletedOn(Date deletedOn) {
+		this.deletedOn = deletedOn;
+	}
+
+	public String getDeletedBy() {
+		return deletedBy;
+	}
+
+	public void setDeletedBy(String deletedBy) {
+		this.deletedBy = deletedBy;
+	}
+
+	public String getReqPassword() {
+		return reqPassword;
+	}
+
+	public void setReqPassword(String reqPassword) {
+		this.reqPassword = reqPassword;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Column(name = "change_password")
 	private Boolean changePassword;
-	
-	@JsonIgnore
-	@Column(name = "force_password_change")
-	private Boolean forcePasswordChange = false;
 	
 	@JsonIgnore
 	@Column(name = "deleted_on")
@@ -95,5 +191,6 @@ public class User extends RecordModifier implements Serializable {
 	public void setAndEncryptPassword(String password) {
 		setPassword(PasswordUtil.getEncryptedPassword(password));
 	}
+
 
 }

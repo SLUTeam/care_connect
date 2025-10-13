@@ -52,7 +52,7 @@ import net.bytebuddy.utility.RandomString;
 @RestController
 @RequestMapping("/auth")
 @Api(value = "Authorization Rest API", description = "Defines endpoints that can be hit only when the user is not logged in. It's not secured by default.")
-@AllArgsConstructor(onConstructor_ = { @Autowired })
+@AllArgsConstructor
 public class AuthenticationController {
 
 	private static final Logger logger = Logger.getLogger(AuthenticationController.class);
@@ -79,6 +79,8 @@ public class AuthenticationController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> login(@ApiParam(value = "The LoginRequest payload") @RequestBody LoginRequest request,
 			@RequestHeader HttpHeaders httpHeader) throws Exception {
+		
+		System.out.println(request.getUserName());
 		ErrorDto errorDto = null;
 		Map<String, Object> response = new HashMap<String, Object>();
 		if (null == request) {
@@ -256,7 +258,6 @@ public class AuthenticationController {
 		emailSender.send(message);
 		System.out.println(password);
 		userObj.setPassword(PasswordUtil.getEncryptedPassword(password));
-		userObj.setForcePasswordChange(true);
 		userService.update(userObj);
 
 		try {

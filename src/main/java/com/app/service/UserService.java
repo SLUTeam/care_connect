@@ -24,7 +24,7 @@ import lombok.NonNull;
 
 @Service
 @Transactional
-@AllArgsConstructor(onConstructor_ = { @Autowired })
+
 public class UserService implements UserDetailsService {
 	
 	private @NonNull UserRepository userRepository;
@@ -65,7 +65,6 @@ public class UserService implements UserDetailsService {
 	}
 
 	public void saveOrUpdate(User object) {
-		object.setForcePasswordChange(false);
 		userRepository.save(object);
 	}
 
