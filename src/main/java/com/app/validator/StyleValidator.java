@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
  * @author Ulaganathan 
  */
 @Service
-@AllArgsConstructor(onConstructor_ = { @Autowired })
+@AllArgsConstructor
 public class StyleValidator {
 	
 	/*

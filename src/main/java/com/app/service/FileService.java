@@ -40,10 +40,10 @@ public class FileService {
 		return true;
 	}
 	
-	public byte[] downloadImage(ImageType imageType,UUID id,String fileName) throws Exception {
-		byte[] data = s3UploadService.getFileFromS3Bucket(getDirectoryPath(imageType, id), fileName);
-		return data;
-	}
+//	public byte[] downloadImage(ImageType imageType,UUID id,String fileName) throws Exception {
+//		byte[] data = s3UploadService.getFileFromS3Bucket(getDirectoryPath(imageType, id), fileName);
+//		return data;
+//	}
 	 
 	 
 }

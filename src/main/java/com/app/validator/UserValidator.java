@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 
 @Service
-@AllArgsConstructor(onConstructor_ = { @Autowired })
+@AllArgsConstructor
 public class UserValidator {
 
 	@Autowired

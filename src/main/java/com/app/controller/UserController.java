@@ -44,7 +44,7 @@ import lombok.AllArgsConstructor;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@AllArgsConstructor(onConstructor_ = { @Autowired })
+@AllArgsConstructor
 @RequestMapping("/api/user")
 @Api(value = "user Rest API's", produces = "application/json", consumes = "application/json")
 public class UserController {

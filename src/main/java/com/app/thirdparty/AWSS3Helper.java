@@ -188,24 +188,24 @@ public class AWSS3Helper {
     }
     
 
-    public byte[] getFileFromS3Bucket(String directoryPath, String fileName) throws Exception {
-        S3Object s3Object = null;
-        try {
-            GetObjectRequest getRequest = new GetObjectRequest(bucket, directoryPath + "/" + fileName);
-            s3Object = s3Client.getObject(getRequest);
-            return s3Object.getObjectContent().readAllBytes();
-        } catch (IOException | SdkClientException e) {
-            logger.error("error [" + e.getMessage() + "] occurred while getting [" + fileName + "] ");
-            throw new Exception("Error occurred while retrieving file from s3 bucket",e);
-        } finally {
-            // To ensure that the network connection doesn't remain open, close any open input streams.
-            if (s3Object != null) {
-                s3Object.close();
-            }
-        }
-
- 
-
-    }
+//    public byte[] getFileFromS3Bucket(String directoryPath, String fileName) throws Exception {
+//        S3Object s3Object = null;
+//        try {
+//            GetObjectRequest getRequest = new GetObjectRequest(bucket, directoryPath + "/" + fileName);
+//            s3Object = s3Client.getObject(getRequest);
+////            return s3Object.getObjectContent().readAllBytes();
+//        } catch (IOException | SdkClientException e) {
+//            logger.error("error [" + e.getMessage() + "] occurred while getting [" + fileName + "] ");
+//            throw new Exception("Error occurred while retrieving file from s3 bucket",e);
+//        } finally {
+//            // To ensure that the network connection doesn't remain open, close any open input streams.
+//            if (s3Object != null) {
+//                s3Object.close();
+//            }
+//        }
+//
+//
+//
+//    }
     
 }
