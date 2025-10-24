@@ -22,11 +22,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtTokenUtil implements Serializable {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	public String getUsernameFromToken(String token) {
+    public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
@@ -62,18 +62,17 @@ public class JwtTokenUtil implements Serializable {
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setIssuer("http://ebraintechnologies.com")
+                .setIssuer("http://com.app")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY_SECONDS*1000))
+                .setExpiration(new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY_SECONDS * 1000))
                 .signWith(SignatureAlgorithm.HS256, SIGNING_KEY)
                 .compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-        return (
-              username.equals(userDetails.getUsername())
-                    && !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername())
+                && !isTokenExpired(token));
     }
-    
+
 }

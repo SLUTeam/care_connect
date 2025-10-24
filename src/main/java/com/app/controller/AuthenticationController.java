@@ -213,7 +213,7 @@ public class AuthenticationController {
 		 
 		 
 		userObj.setPassword(PasswordUtil.getEncryptedPassword(request.getNewPassword()));
-		userObj.setModifiedOn(new Date());	
+	//	userObj.setModifiedOn(new Date());	
 		userObj.setChangePassword(true);
 		userService.saveOrUpdate(userObj);
 		try {

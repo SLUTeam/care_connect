@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
+import com.amazonaws.services.workdocs.model.UserType;
+import com.app.enumeration.Status;
 import com.app.util.PasswordUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -71,6 +73,17 @@ public class User extends RecordModifier implements Serializable {
 	@Type(type = "uuid-char")
 	@Column(name = "role_id")
 	private UUID userRoleId;
+	
+	private Status status;
+	
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public UUID getId() {
 		return id;
