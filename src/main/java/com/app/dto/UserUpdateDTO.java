@@ -63,5 +63,12 @@ public class UserUpdateDTO implements Serializable {
 		private String phoneNo;
 		private String email;
 		private String address;
-		private UUID userRoleId;	
+		private UUID userRoleId;
+		private String password;
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
+		}
 }

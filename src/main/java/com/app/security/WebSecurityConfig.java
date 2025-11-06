@@ -71,12 +71,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/login",
                 		"/auth/send/password",
                 		"/swagger-ui.html",
-//                		"/api/sale/**",
-//                		"/api/manage/print/view/**",
                 		"/file/view/**",
-                		"/api/user/**"
-//                		"/api/sale/print/view/xl/**",
-//                		"/api/poultrybreed/**"
+                		"/api/user/**",
+                		"/api/register/**"
+
                 		).permitAll()
                 .anyRequest().authenticated()
                 .and()

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,6 +19,7 @@ import com.app.dto.UserResposeDTO;
 import com.app.entity.User;
 
 @Repository
+@Transactional
 public class UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
