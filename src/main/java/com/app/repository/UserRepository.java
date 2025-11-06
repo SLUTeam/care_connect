@@ -27,6 +27,8 @@ public interface UserRepository extends WriteableRepository<User, UUID> {
 
 	Optional<User> findByAddress(String address);
 
+	boolean existsByEmail(String email);
+	boolean existsByEmailAndIdNot(String email, UUID id);
 	Optional<User> findByPasswordAndUserName(String encryptedPassword, String userName);
 
 
