@@ -18,28 +18,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="tb_country")
-public class Country  implements Serializable {
-
-	
+@Table(name = "tb_state")
+public class StateEntity  implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(generator = "UUID")
-	@GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	@Type(type = "uuid-char")
 	@Column(name = "id", updatable = false, nullable = false)
 	private UUID id;
 	
-	@Column(name="name")
-	private String countryName;
+	@Column(name = "name")
+	private String stateName;
 	
-	@Column(name="short_name")
+	@Column(name = "short_name")
 	private String shortName;
+
+	@Type(type = "uuid-char")
+	@Column(name = "country_id")
+	private UUID countryId;
 	
-	@Column(name="country_code")
-	private String countryCode;
-	
-	
-	 
 }
